@@ -1,18 +1,28 @@
+.page-layout {
+    @apply flex-col flex-grow w-screen h-screen;
+}
 
-.layout {
-    @apply flex w-screen h-screen;
+
+.top-bar {
+    @apply h-[75px] flex justify-between bg-gray
+}
+
+
+.logo-container {
+    @apply pl-[24px]; /* TODO: vezi relativ la latima la leftbar */
+}
+
+
+.login-button-container {
+    @apply flex flex-col justify-center pr-[24px]
 }
 
 
 
 .admin-menu {
-    @apply w-[15.625rem] h-screen bg-purple-faded flex flex-col items-center gap-24;
+    @apply flex-1 w-[15.625rem] bg-gray flex flex-col items-center gap-24;
 }
 
-
-.logo-container {
-    @apply flex items-center justify-center w-full h-28;
-}
 
 
 .left-bar    {
@@ -26,4 +36,12 @@
 
 .left-bar-button    {
     @apply flex flex-col
+}
+
+
+
+
+/* colors only */
+.lime-text {
+    @apply text-lime
 }
