@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div className="page-layout">
           <TopBar login_flag={0}/>
-          {/* <LeftBar /> */}
+          <LeftBar />
         </div>
       );
 }
