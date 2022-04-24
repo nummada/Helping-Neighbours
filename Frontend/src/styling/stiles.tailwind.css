@@ -1,0 +1,29 @@
+
+.layout {
+    @apply flex w-screen h-screen;
+}
+
+
+
+.admin-menu {
+    @apply w-[15.625rem] h-screen bg-purple-faded flex flex-col items-center gap-24;
+}
+
+
+.logo-container {
+    @apply flex items-center justify-center w-full h-28;
+}
+
+
+.left-bar    {
+    @apply flex flex-col w-[90%] gap-5;
+}
+
+
+.nav-link {
+    @apply h-12 pl-4 rounded-[10px] flex items-center font-semibold gap-2 opacity-50 text-lg;
+}
+
+.left-bar-button    {
+    @apply flex flex-col
+}
