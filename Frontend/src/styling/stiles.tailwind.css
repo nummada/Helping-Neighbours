@@ -14,9 +14,13 @@
 
 
 .login-button-container {
-    @apply flex flex-col justify-center pr-[24px]
+    @apply w-[70px] flex flex-col justify-center pr-[24px]
 }
 
+
+.login-button-button {
+    @apply cursor-pointer border-none bg-transparent
+}
 
 
 .admin-menu {
