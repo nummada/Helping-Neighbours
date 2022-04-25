@@ -36,8 +36,69 @@
     @apply w-[calc(100%-147px)] h-full flex justify-center
 }
 
+/* .lime-page {
+    @apply bg-lime h-full w-[1243px] flex-col
+} */
+
 .lime-page {
-    @apply bg-lime h-full w-[1243px]
+    @apply flex-col justify-center bg-lime h-full w-[1243px]
+}
+
+
+/* content of the home page */
+
+.posts {
+    @apply flex-col pt-4 overflow-auto h-[600px]
+}
+
+.post-container {
+    @apply flex justify-center pb-6
+}
+
+.post {
+    @apply flex bg-white rounded-2xl w-[calc(100%-100px)] h-[252px] border-solid border
+}
+
+/* only the left side of a post */
+
+.left-side-of-post {
+    @apply flex flex-col w-[439px]
+}
+
+.post-profile-info {
+    @apply flex
+}
+
+.post-image {
+    @apply pt-4 pl-4 pb-4
+}
+
+.post-person-data {
+    @apply flex flex-col w-full pt-4 pb-4 pl-4 gap-y-2
+}
+
+.little-icon-and-text {
+    @apply flex gap-x-2 text-left
+}
+
+
+/* only the right side of a post */
+
+.right-side-of-post {
+    @apply flex flex-col w-full
+}
+
+.post-description-container {
+    @apply h-[185px] w-full
+}
+
+.post-description {
+    @apply mt-4 ml-6 bg-lime h-[148px] w-[688px] /*border-solid border*/
+}
+
+/* pt-6 because in figma we had 24px above the flower hands image */
+.flower-hands {
+    @apply pt-6
 }
 
 

@@ -1,12 +1,13 @@
-import React, { useMemo, useState } from "react";
 
 const LimeContent = (props) => {
     var content = props.content
     return (
-        <div className="lime-page">
-          {content}
-        </div>
-      );
+		<div className="lime-page-container">
+			<div className="lime-page">
+				<props.content/>
+			</div>
+		</div>
+    );
 }
 
 

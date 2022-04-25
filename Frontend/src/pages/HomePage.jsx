@@ -1,12 +1,9 @@
-import React, { useMemo, useState } from "react";
-// import UserLayout from "../../utils/UserLayout";
-import logo from '../assets/logo.svg'
+import HomePageContent from "../utils/components/HomePageContent";
 import LeftBar from '../utils/components/LeftBar'
 import LimeContent from "../utils/components/LimeContent";
 import TopBar from "../utils/components/TopBar";
 
 const HomePage = () => {
-    const text = "This is home page";
     return (
       // page-layout is in column
         <div className="page-layout">
@@ -18,9 +15,7 @@ const HomePage = () => {
                 adica ceva clasa/const cu poza de sus, filtrele si postarile. pentru restul paginilor care au
                 tot asa lime background, facem la fel, cate o componenta care sa contina tot ce trebuie
             */}
-            <div className="lime-page-container">
-              <LimeContent />
-            </div>
+			<LimeContent content={HomePageContent}/>
           </div>
         </div>
       );
