@@ -2,6 +2,15 @@
     @apply flex-col w-screen h-screen;
 }
 
+/* general */
+.button {
+    @apply flex w-fit whitespace-nowrap h-[18px] pl-2 pr-2 pt-1 pb-1 rounded-xl text-sm
+}
+
+.button-wrapper {
+    @apply flex justify-end mr-6
+}
+
 
 /* only top bar related */
 
@@ -56,13 +65,13 @@
 }
 
 .post {
-    @apply flex bg-white rounded-2xl w-[calc(100%-100px)] h-[252px] border-solid border
+    @apply flex bg-white rounded-2xl w-[1143px] h-[252px] border-solid border
 }
 
 /* only the left side of a post */
 
 .left-side-of-post {
-    @apply flex flex-col w-[439px]
+    @apply flex flex-col w-[540px]
 }
 
 .post-profile-info {
@@ -70,30 +79,40 @@
 }
 
 .post-image {
-    @apply pt-4 pl-4 pb-4
+    @apply mt-4 ml-4 mb-4 mr-4
 }
 
 .post-person-data {
-    @apply flex flex-col w-full pt-4 pb-4 pl-4 gap-y-2
+    @apply flex flex-col w-full mt-4 mb-4 gap-y-2
 }
 
 .little-icon-and-text {
     @apply flex gap-x-2 text-left
 }
 
+.tags {
+    @apply flex h-full justify-start ml-4 gap-2 mt-4
+}
+
+.tag {
+    @apply flex w-auto whitespace-nowrap h-[18px] bg-tag_gray pl-2 pr-2 pt-1 pb-1 rounded-xl
+    text-sm
+}
 
 /* only the right side of a post */
 
+/* flex-grow to occupy the space that is left after the left side of page */
 .right-side-of-post {
-    @apply flex flex-col w-full
+    @apply flex-col flex-grow
 }
 
 .post-description-container {
-    @apply h-[185px] w-full
+    @apply w-full h-[185px]
 }
 
+/* TODO: aici era h-[148px] in loc de h-auto, acum se face casuta verde de text in functie de dimensiunea textului  */
 .post-description {
-    @apply mt-4 ml-6 bg-lime h-[148px] w-[688px] /*border-solid border*/
+    @apply bg-lime h-[140px] mr-6 rounded-2xl mt-4
 }
 
 /* pt-6 because in figma we had 24px above the flower hands image */
@@ -121,3 +140,6 @@
 .lime-text {
     @apply text-lime
 }
+ .bkg-green {
+     @apply bg-green
+ }
