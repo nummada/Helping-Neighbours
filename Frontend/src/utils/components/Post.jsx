@@ -13,7 +13,7 @@ const Post = () => {
     const street = "Strada Mihai Eminescu 238, Bucuresti"
     const phone = "0734 698 123"
     const mail = "josiane43@yahoo.com"
-    const post_description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit ipsum quis metus mollis pretium. Aliquam id varius ligula. Donec euismod sodales mauris non maximus. Phasellus enim erat, aliquet id lorem id, porttitor vulputate justo. Aliquam ac lorem sit amet dolor vehicula faucibus eget ut nisi. Integer consequat odio ut ante fringilla, et tincidunt."
+    const post_description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit ipsum quis metus mollis pretium. Aliquam id varius ligula. Donec euismod sodales mauris non maximus. Phasellus enim erat, aliquet id lorem id, porttitor vulputate justo. Aliquam ac lorem sit amet dolor vehicula faucibus eget ut nisi. Integer consequat odio ut ante fringilla, et tincidunt. Integer consequat odio ut ante fringilla, et tincidunt. Integer consequat odio ut ante fringilla, et tincidunt. Integer consequat odio ut ante fringilla, et tincidunt."
     
     return (
         <div className='post-container'>

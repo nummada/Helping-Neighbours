@@ -112,7 +112,7 @@
 
 /* TODO: aici era h-[148px] in loc de h-auto, acum se face casuta verde de text in functie de dimensiunea textului  */
 .post-description {
-    @apply bg-lime h-[140px] mr-6 rounded-2xl mt-4
+    @apply bg-lime h-[140px] mt-4 mr-6 rounded-2xl overflow-auto p-4 min-w-[320px]
 }
 
 /* pt-6 because in figma we had 24px above the flower hands image */
