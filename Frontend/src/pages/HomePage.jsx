@@ -15,7 +15,7 @@ const HomePage = () => {
                 adica ceva clasa/const cu poza de sus, filtrele si postarile. pentru restul paginilor care au
                 tot asa lime background, facem la fel, cate o componenta care sa contina tot ce trebuie
             */}
-			<LimeContent content={HomePageContent}/>
+			      <LimeContent content={HomePageContent}/>
           </div>
         </div>
       );

@@ -50,14 +50,14 @@
 } */
 
 .lime-page {
-    @apply flex-col justify-center bg-lime h-full w-[1243px]
+    @apply flex-col justify-center bg-lime h-full w-[1243px] overflow-auto
 }
 
 
 /* content of the home page */
 
 .posts {
-    @apply flex-col pt-4 overflow-auto h-[600px]
+    @apply flex-col pt-4
 }
 
 .post-container {

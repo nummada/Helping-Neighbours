@@ -21,6 +21,9 @@ const HomePageContent = () => {
                 <Post />
                 <Post />
                 <Post />
+                <Post />
+                <Post />
+                <Post />
             </div>
         </div>
     );
