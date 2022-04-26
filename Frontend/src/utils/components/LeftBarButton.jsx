@@ -18,7 +18,7 @@ const LeftBarButton = (props) => {
         <div className="left-bar-button">
             <button className="login-button-button" onClick={() => login_logic ? navigate(link): loginWithRedirect()}>
                 <div>
-                    <img src={image_path} width="90px" height="78px" />
+                    <img src={image_path} width="80px" height="68px" />
                 </div>
                 <div className="lime-text">
                     {text}
