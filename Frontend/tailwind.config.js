@@ -22,6 +22,7 @@ module.exports = {
             orange: "#F39530",
             text_bkg: "#E9FEFF",
             white: "#FFFFFF",
+            tag_gray: "#E2DED5",
 
 
             transparent: "transparent",
