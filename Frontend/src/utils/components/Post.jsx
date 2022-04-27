@@ -24,7 +24,7 @@ const Post = () => {
                             <img src={Face} width="150px" height="150px" />
                         </div>
                         <div className='post-person-data'>
-                            <PostPersonData icon={EmailIcon} text={mail} />
+                            <PostPersonData icon={ProfileIcon} text={name} />
                             <PostPersonData icon={StreetIcon} text={street} />
                             <PostPersonData icon={PhoneIcon} text={phone} />
                             <PostPersonData icon={EmailIcon} text={mail} />
