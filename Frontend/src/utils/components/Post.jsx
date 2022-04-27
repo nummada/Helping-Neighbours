@@ -48,7 +48,7 @@ const Post = () => {
                         </div>
                     </div>
                     <div className='button-wrapper'>
-                        <Button text="Interested" bg_color="bkg-green" />
+                        <Button text="Interested" bg_color="bkg-green" on_click_function="interested" />
                     </div>
                 </div>
             </div>

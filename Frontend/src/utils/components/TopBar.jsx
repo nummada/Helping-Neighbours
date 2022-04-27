@@ -21,7 +21,7 @@ const TopBar = (props) => {
                 <img src={logo} width="143px" height="73px" alt="Helping Neighbours" />
             </div>
             <div className="login-button-container">
-                <button className="login-button-button" onClick={() => loginWithRedirect()}>
+                <button className="transparent-bgk-button" onClick={() => loginWithRedirect()}>
                     <div>
                         <img src={profileIcon} width="45px" height="45px"/>
                     </div>
