@@ -143,3 +143,8 @@
  .bkg-green {
      @apply bg-green
  }
+
+/* about us page */
+.about-us-text {
+    @apply text-center text-2xl p-10
+}
