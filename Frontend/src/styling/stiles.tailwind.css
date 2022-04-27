@@ -30,7 +30,7 @@
 }
 
 
-.login-button-button {
+.transparent-bgk-button {
     @apply cursor-pointer border-none bg-transparent
 }
 

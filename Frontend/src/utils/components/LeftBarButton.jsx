@@ -16,7 +16,7 @@ const LeftBarButton = (props) => {
     return (
 
         <div className="left-bar-button">
-            <button className="login-button-button" onClick={() => login_logic ? navigate(link): loginWithRedirect()}>
+            <button className="transparent-bgk-button" onClick={() => login_logic ? navigate(link): loginWithRedirect()}>
                 <div>
                     <img src={image_path} width="80px" height="68px" />
                 </div>

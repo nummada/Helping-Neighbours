@@ -13,7 +13,7 @@ const LogoutButton = (props) => {
     return (
 
         <div className="left-bar-button">
-            <button className="login-button-button" onClick={() => logout({ returnTo: link })}>
+            <button className="transparent-bgk-button" onClick={() => logout({ returnTo: link })}>
                 <div>
                     <img src={image_path} width="80px" height="68px" />
                 </div>
