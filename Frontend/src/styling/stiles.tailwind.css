@@ -132,7 +132,7 @@
     @apply w-[147px] flex flex-col justify-center pt-4;
 }
 
-.left-bar-down {
+.left-bar-logout {
     @apply pb-4;
 }
 
