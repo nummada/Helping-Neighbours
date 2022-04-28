@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import profileIcon from "../../assets/buttons/login_signup_profile.png";
 import logo from "../../assets/logo.svg";
+import { useNavigate } from 'react-router-dom';
 
 const TopBar = (props) => {
 
@@ -13,7 +14,7 @@ const TopBar = (props) => {
     var login_logic = isAuthenticated;
 
     var button_text = login_logic ? "My profile" : "Log in";
-    var path = login_logic ? "/profile" : "/login";
+    const navigate = useNavigate();
 
     return (
         <div className="top-bar">
@@ -21,7 +22,7 @@ const TopBar = (props) => {
                 <img src={logo} width="143px" height="73px" alt="Helping Neighbours" />
             </div>
             <div className="login-button-container">
-                <button className="transparent-bgk-button" onClick={() => loginWithRedirect()}>
+                <button className="transparent-bgk-button" onClick={() => login_logic ? navigate("/profile"): loginWithRedirect()}>
                     <div>
                         <img src={profileIcon} width="45px" height="45px"/>
                     </div>

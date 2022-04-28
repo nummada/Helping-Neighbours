@@ -1,12 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 
 const Button = (props) => {
     var text = props.text
     var bg_color = props.bg_color
     var on_click_function = props.on_click_function
+    var type = props.type
     return (
         <div>
-            <button className="transparent-bgk-button" onClick={() => {select_function(on_click_function)}}>
-                <div className={bg_color + " button"}>
+            <button className="transparent-bgk-button" onClick={() => { select_function(on_click_function) }}>
+                <div className={bg_color + " " + type}>
                     {text}
                 </div>
             </button>
@@ -15,11 +17,13 @@ const Button = (props) => {
 }
 
 
+
+
 function select_function(on_click_function) {
-    switch(on_click_function) {
+    switch (on_click_function) {
         case 'interested':
-          return interested()
-      }
+            return interested()
+    }
 }
 
 // aici trebuie sa preluam ceva informatii despre ce postare a fost apasata

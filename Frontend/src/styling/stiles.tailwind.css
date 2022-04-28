@@ -3,12 +3,16 @@
 }
 
 /* general */
-.button {
-    @apply flex w-fit whitespace-nowrap h-[18px] pl-2 pr-2 pt-1 pb-1 rounded-xl text-sm
+.little-button {
+    @apply flex w-fit whitespace-nowrap p-2 rounded-xl text-sm text-white
 }
 
-.button-wrapper {
-    @apply flex justify-end mr-6
+.medium-button {
+    @apply flex w-fit whitespace-nowrap p-2 rounded-xl text-lg text-white
+}
+
+.post-button-wrapper {
+    @apply flex mr-6 justify-end
 }
 
 
@@ -21,7 +25,8 @@
 
 
 .logo-container {
-    @apply pl-[4px]; /* TODO: vezi relativ la latima la leftbar */
+    @apply pl-[4px];
+    /* TODO: vezi relativ la latima la leftbar */
 }
 
 
@@ -95,8 +100,7 @@
 }
 
 .tag {
-    @apply flex w-auto whitespace-nowrap h-[18px] bg-tag_gray pl-2 pr-2 pt-1 pb-1 rounded-xl
-    text-sm
+    @apply flex w-auto whitespace-nowrap h-[18px] bg-tag_gray pl-2 pr-2 pt-1 pb-1 rounded-xl text-sm
 }
 
 /* only the right side of a post */
@@ -140,6 +144,67 @@
 .lime-text {
     @apply text-lime
 }
- .bkg-green {
-     @apply bg-green
- }
+
+.bkg-green {
+    @apply bg-green
+}
+
+.bkg-blue {
+    @apply bg-blue
+}
+
+
+/* about us page */
+.about-us-text {
+    @apply text-center text-2xl p-10
+}
+
+/* profile page */
+
+.profile-page-content {
+    @apply flex flex-col w-full h-auto items-center
+}
+
+.profile-title {
+    @apply text-5xl pt-[60px]
+}
+
+.account-information {
+    @apply flex flex-col justify-center
+}
+
+.change-image-and-password {
+    @apply h-[200px] w-auto
+}
+
+.account-info-title {
+    @apply text-3xl text-left pl-[287px]
+}
+
+.form-title {
+    @apply text-2xl mt-4 mb-4 w-max
+}
+
+.form-layout {
+    @apply flex flex-col mt-[24px] w-max
+}
+
+.fields {
+    @apply flex flex-col w-max
+}
+
+.title-and-field {
+    @apply flex flex-col w-max
+}
+
+.form-field-title {
+    @apply h-[30px] text-base w-max
+}
+
+.input-layout {
+    @apply h-12 w-[700px] text-sm rounded-lg
+}
+
+.profile-save-wrapper {
+    @apply mt-6
+}

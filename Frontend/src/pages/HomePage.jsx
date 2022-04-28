@@ -1,4 +1,4 @@
-import HomePageContent from "../utils/components/HomePageContent";
+import HomePageContent from "../utils/components/page_content/HomePageContent";
 import LeftBar from '../utils/components/LeftBar'
 import LimeContent from "../utils/components/LimeContent";
 import TopBar from "../utils/components/TopBar";

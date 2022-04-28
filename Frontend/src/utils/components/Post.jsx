@@ -24,7 +24,7 @@ const Post = () => {
                             <img src={Face} width="150px" height="150px" />
                         </div>
                         <div className='post-person-data'>
-                            <PostPersonData icon={EmailIcon} text={mail} />
+                            <PostPersonData icon={ProfileIcon} text={name} />
                             <PostPersonData icon={StreetIcon} text={street} />
                             <PostPersonData icon={PhoneIcon} text={phone} />
                             <PostPersonData icon={EmailIcon} text={mail} />
@@ -47,8 +47,8 @@ const Post = () => {
                             {post_description}
                         </div>
                     </div>
-                    <div className='button-wrapper'>
-                        <Button text="Interested" bg_color="bkg-green" on_click_function="interested" />
+                    <div className='post-button-wrapper'>
+                        <Button text="Interested" bg_color="bkg-green" on_click_function="interested" type="little-button"/>
                     </div>
                 </div>
             </div>

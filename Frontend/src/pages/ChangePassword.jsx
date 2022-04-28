@@ -1,5 +1,5 @@
 import React from "react";
-import AboutUsContent from "../utils/components/page_content/AboutUsContent";
+import ChangePasswordContent from "../utils/components/page_content/ChangePasswordContent";
 import LeftBar from '../utils/components/LeftBar'
 import LimeContent from "../utils/components/LimeContent";
 import TopBar from "../utils/components/TopBar";
@@ -11,7 +11,7 @@ const AboutUs = () => {
 			{/* page includes left bar and content, flex*/}
 			<div className="page">
 				<LeftBar />
-				<LimeContent content={AboutUsContent}/>
+				<LimeContent content={ChangePasswordContent}/>
 			</div>
 		</div>
     );

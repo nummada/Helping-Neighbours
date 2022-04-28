@@ -6,6 +6,7 @@ import ModifyPost from "../pages/ModifyPost";
 import MyPosts from "../pages/MyPosts";
 import Profile from "../pages/Profile";
 import WannaHelp from "../pages/WannaHelp";
+import ChangePassword from "../pages/ChangePassword";
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         <Route exact path="/my-posts" element={<MyPosts />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/want-to-help" element={<WannaHelp />} />
+        <Route exact path="/change-password" element={<ChangePassword />} />
     </Routes>
     </BrowserRouter>
   );
