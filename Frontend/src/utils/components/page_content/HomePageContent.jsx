@@ -18,12 +18,12 @@ const HomePageContent = () => {
             
             <div className='posts'>
                 {/* TODO: aici trebuie sa dam datele ca param, nu hardcodate in Post */}
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                <Post page="home"/>
+                <Post page="home"/>
+                <Post page="home"/>
+                <Post page="home"/>
+                <Post page="home"/>
+                <Post page="home"/>
             </div>
         </div>
     );

@@ -153,6 +153,9 @@
     @apply bg-blue
 }
 
+.bkg-red {
+    @apply bg-red
+}
 
 /* about us page */
 .about-us-text {
@@ -207,4 +210,15 @@
 
 .profile-save-wrapper {
     @apply mt-6
+}
+
+
+/* my posts only */
+
+.my-posts-layout {
+    @apply flex flex-col
+}
+
+.my-posts-title {
+    @apply pl-[50px] pt-[44px] w-max text-4xl
 }

@@ -1,18 +1,20 @@
-import React, { useMemo, useState } from "react";
-// import UserLayout from "../../utils/UserLayout";
-import logo from '../assets/logo.svg'
+import React from "react";
+import AboutUsContent from "../utils/components/page_content/AboutUsContent";
+import LeftBar from '../utils/components/LeftBar'
+import LimeContent from "../utils/components/LimeContent";
+import TopBar from "../utils/components/TopBar";
+import MyPostsContent from "../utils/components/page_content/MyPostsContent";
 
 const MyPosts = () => {
-    const text = "This is MyPosts page";
     return (
-        <div className="MyPosts">
-            <header className="MyPosts-header">
-                <img src={logo} alt="logo" />
-                <p>
-                    {text}
-                </p>
-            </header>
-        </div>
+        <div className="page-layout">
+			<TopBar login_flag={0}/>
+			{/* page includes left bar and content, flex*/}
+			<div className="page">
+				<LeftBar />
+				<LimeContent content={MyPostsContent}/>
+			</div>
+		</div>
     );
 }
 
