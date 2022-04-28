@@ -1,6 +1,5 @@
 import { useState, Component } from "react";
 import Button from "../Button";
-import ChangePasswordButton from "../ChangePasswordButton";
 
 const ProfileContent = () => {
     return (
@@ -8,13 +7,8 @@ const ProfileContent = () => {
             <div className="profile-title">
                 {"Edit information"}
             </div>
-            <div className="change-image-and-password">
-                <ChangePasswordButton
-                    text="Change your password"
-                    bg_color="bkg-blue"
-                    on_click_function="change_password"
-                    type="medium-button"
-                />
+            <div className="change-image">
+
             </div>
 
             <div className="form-layout">
@@ -23,7 +17,6 @@ const ProfileContent = () => {
                 </div>
                 <Form />
             </div>
-
         </div>
     );
 }
@@ -38,9 +31,9 @@ const FormData = (props) => {
     return (
         <div className="title-and-field">
             {/* <label htmlFor={name}> */}
-                <div className="form-field-title">
-                    {placeholder}
-                </div>
+            <div className="form-field-title">
+                {placeholder}
+            </div>
             {/* </label> */}
             <input className="input-layout"
                 name={name}
@@ -69,7 +62,7 @@ class Form extends Component {
     handleSubmit(event) {
         const { name, email, address, phoneNo } = this.state
         event.preventDefault()
-        
+
         if (name.length > 25) {
             console.log("numele e prea lung")
         }

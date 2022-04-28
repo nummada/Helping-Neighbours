@@ -173,7 +173,7 @@
     @apply flex flex-col justify-center
 }
 
-.change-image-and-password {
+.change-image {
     @apply h-[200px] w-auto
 }
 
