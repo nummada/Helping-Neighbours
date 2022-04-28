@@ -10,13 +10,14 @@ const LeftBarButton = (props) => {
     var image_path = props.image_path
     var text = props.text
     var link = props.link
-    var login_logic = isAuthenticated;
+    var needsAuthentication = props.needsAuthentication
+    var login = needsAuthentication && !(isAuthenticated)
     const navigate = useNavigate();
 
     return (
 
         <div className="left-bar-button">
-            <button className="transparent-bgk-button" onClick={() => login_logic ? navigate(link): loginWithRedirect()}>
+            <button className="transparent-bgk-button" onClick={() => login ? loginWithRedirect(): navigate(link)}>
                 <div>
                     <img src={image_path} width="80px" height="68px" />
                 </div>

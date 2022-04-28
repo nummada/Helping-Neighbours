@@ -18,12 +18,29 @@ const LeftBar = () => {
 		return (
 			<div className="left-bar">
 				<div>
-					<LeftBarButton image_path={Home} text="Home page" link="/"/>
-					<LeftBarButton image_path={WantToHelp} text="I want to help" link="/want-to-help"/>
-					<LeftBarButton image_path={AboutUs} text="About us" link="/about-us"/>
+					<LeftBarButton
+						image_path={Home}
+						text="Home page"
+						link="/" needsAuthentication={false}
+					/>
+					<LeftBarButton
+						image_path={WantToHelp}
+						text="I want to help"
+						link="/want-to-help"
+						needsAuthentication={true}
+					/>
+					<LeftBarButton
+						image_path={AboutUs}
+						text="About us"
+						link="/about-us"
+						needsAuthentication={false}/>
 				</div>
 				<div className="left-bar-logout">
-					<LogoutButton image_path={Logout} text="Logout" link={window.location.origin}/>
+					<LogoutButton
+						image_path={Logout}
+						text="Logout"
+						link={window.location.origin}
+					/>
 				</div>
 			</div>
 		);
@@ -33,9 +50,9 @@ const LeftBar = () => {
 	return (
 		<div className="left-bar">
 			<div>
-				<LeftBarButton image_path={Home} text="Home page" link="/"/>
-				<LeftBarButton image_path={WantToHelp} text="I want to help" link="/want-to-help"/>
-				<LeftBarButton image_path={AboutUs} text="About us" link="/about-us"/>
+				<LeftBarButton image_path={Home} text="Home page" link="/" needsAuthentication={false}/>
+				<LeftBarButton image_path={WantToHelp} text="I want to help" link="/want-to-help" needsAuthentication={true}/>
+				<LeftBarButton image_path={AboutUs} text="About us" link="/about-us" needsAuthentication={false}/>
 			</div>
 		</div>
 	);

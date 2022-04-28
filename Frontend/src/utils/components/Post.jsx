@@ -47,8 +47,8 @@ const Post = () => {
                             {post_description}
                         </div>
                     </div>
-                    <div className='button-wrapper'>
-                        <Button text="Interested" bg_color="bkg-green" on_click_function="interested" />
+                    <div className='post-button-wrapper'>
+                        <Button text="Interested" bg_color="bkg-green" on_click_function="interested" type="little-button"/>
                     </div>
                 </div>
             </div>

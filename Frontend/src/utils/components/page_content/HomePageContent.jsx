@@ -1,13 +1,13 @@
-import FlowerHands from '../../assets/hands-with-flowers.png'
-import Face from '../../assets/face.png'
-import EmailIcon from '../../assets/icons/email_icon.png'
-import StreetIcon from '../../assets/icons/location_icon.png'
-import PhoneIcon from '../../assets/icons/phone_icon.png'
-import ProfileIcon from '../../assets/icons/profile_icon.png'
-import PostPersonData from './PostPersonData'
-import Tag from './Tag'
-import Button from './Button'
-import Post from './Post'
+import FlowerHands from '../../../assets/hands-with-flowers.png'
+import Face from '../../../assets/face.png'
+import EmailIcon from '../../../assets/icons/email_icon.png'
+import StreetIcon from '../../../assets/icons/location_icon.png'
+import PhoneIcon from '../../../assets/icons/phone_icon.png'
+import ProfileIcon from '../../../assets/icons/profile_icon.png'
+import PostPersonData from '../PostPersonData'
+import Tag from '../Tag'
+import Button from '../Button'
+import Post from '../Post'
 
 const HomePageContent = () => {
     return (
