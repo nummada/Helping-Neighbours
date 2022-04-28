@@ -23,6 +23,7 @@ module.exports = {
             text_bkg: "#E9FEFF",
             white: "#FFFFFF",
             tag_gray: "#E2DED5",
+            red: "#FF0000",
 
 
             transparent: "transparent",
