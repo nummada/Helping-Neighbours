@@ -1,10 +1,35 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 
 const User = new Schema(
     {
-        name: { type: String, required: true },
+        name: { 
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            required: true,
+        },
+        phoneNumber: {
+            type: String,
+            required: true,
+        },
+        accountType: {
+            type: String,
+            enum: ['BENEFACTOR', 'REFUGEE'],
+            required: true,
+        },
+        posts: {
+            type: [Posts],
+            required: true,
+        },
+        postsInterested : {
+            type: [ObjectId],
+            required: false,
+        }
     }
 )
 
