@@ -4,7 +4,7 @@ const MyPostsContent = () => {
 
     return (
         <div className="my-posts-layout">
-            <div className="my-posts-title">
+            <div className="page-title">
                 Your posts
             </div>
             <div className='posts'>

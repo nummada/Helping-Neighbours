@@ -12,7 +12,7 @@
 }
 
 .post-button-wrapper {
-    @apply flex mr-6 justify-end
+    @apply flex mr-6 justify-end gap-2
 }
 
 
@@ -205,7 +205,7 @@
 }
 
 .input-layout {
-    @apply h-12 w-[700px] text-sm rounded-lg
+    @apply h-12 w-[700px] text-base rounded-lg px-4
 }
 
 .profile-save-wrapper {
@@ -219,6 +219,79 @@
     @apply flex flex-col
 }
 
-.my-posts-title {
+
+/* wanna help related */
+
+.wanna-help-layout {
+    @apply flex flex-col
+}
+
+.wanna-help-content {
+    @apply flex flex-col items-center h-min
+}
+
+.top-content-wanna-help {
+    @apply mt-12 mb-12 flex h-auto w-full text-lg
+}
+
+.enter-location {
+    @apply flex flex-col w-1/2 text-2xl
+}
+
+.twoxl-text {
+    @apply text-2xl text-left
+}
+
+.tags-and-image {
+    @apply w-1/2 flex flex-col
+}
+
+.down-content-wanna-help {
+    @apply flex flex-col h-auto w-auto
+}
+
+
+.tags {
+    @apply flex h-min
+}
+
+.description-layout {
+    @apply h-[229px] w-[1000px] text-base rounded-lg resize-none p-2 bg-text_bkg
+}
+
+.post-tag {
+    @apply w-max h-max
+}
+
+.post-button-container {
+    @apply mt-4
+}
+
+.post-subtitle-container {
+    @apply text-lg
+}
+
+.select-container {
+    @apply flex flex-col p-4 items-center gap-2
+}
+
+.select-county {
+    @apply w-min text-xl rounded p-1 bg-text_bkg
+}
+
+.address-layout {
+    @apply w-96 h-6 p-2 text-base rounded-lg resize-none bg-text_bkg
+}
+
+
+/* title in page */
+.page-title {
     @apply pl-[50px] pt-[44px] w-max text-4xl
+}
+
+
+
+/* generice */
+.centrare {
+    @apply items-center
 }
