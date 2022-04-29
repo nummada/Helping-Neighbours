@@ -22,7 +22,7 @@ const Post = (props) => {
                 <div className='left-side-of-post'>
                     <div className='post-profile-info'>
                         <div className='post-image'>
-                            <img src={Face} width="150px" height="150px" />
+                            <img src={Face} width="150px" height="150px" alt='' />
                         </div>
                         <div className='post-person-data'>
                             <PostPersonData icon={ProfileIcon} text={name} />

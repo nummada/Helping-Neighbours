@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-
 const Button = (props) => {
     var text = props.text
     var bg_color = props.bg_color

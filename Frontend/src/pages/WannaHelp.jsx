@@ -1,18 +1,19 @@
-import React, { useMemo, useState } from "react";
-// import UserLayout from "../../utils/UserLayout";
-import logo from '../assets/logo.svg'
+import React from "react";
+import LeftBar from '../utils/components/LeftBar'
+import LimeContent from "../utils/components/LimeContent";
+import TopBar from "../utils/components/TopBar";
+import WantToHelpContent from "../utils/components/page_content/WantToHelpContent";
 
 const WannaHelp = () => {
-    const text = "This is WannaHelp page";
     return (
-        <div className="Profile">
-            <header className="WannaHelp-header">
-                <img src={logo} alt="logo" />
-                <p>
-                    {text}
-                </p>
-            </header>
-        </div>
+        <div className="page-layout">
+			<TopBar login_flag={0}/>
+			{/* page includes left bar and content, flex*/}
+			<div className="page">
+				<LeftBar />
+				<LimeContent content={WantToHelpContent}/>
+			</div>
+		</div>
     );
 }
 
