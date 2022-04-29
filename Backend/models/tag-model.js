@@ -22,4 +22,7 @@ const Tag = new Schema(
     }
 )
 
-module.exports = mongoose.model('tags', Tag)
+module.exports = {
+    TagModel: mongoose.model('tags', Tag),
+    TagSchema: Tag
+}

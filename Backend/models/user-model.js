@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { PostSchema } = require('./post-model')
 const Schema = mongoose.Schema
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
@@ -23,7 +24,7 @@ const User = new Schema(
             required: true,
         },
         posts: {
-            type: [Posts],
+            type: [PostSchema],
             required: true,
         },
         postsInterested : {

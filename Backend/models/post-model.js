@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Tag = require('./tag-model')
+const { TagSchema } = require('./tag-model')
 const Schema = mongoose.Schema
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
@@ -15,7 +15,7 @@ const Post = new Schema(
             required: true,
         },
         tags: {
-            type: [Tag],
+            type: [TagSchema],
             required: true,
         },
         interestedRefugees: {
@@ -30,4 +30,7 @@ const Post = new Schema(
     }
 );
 
-module.exports = mongoose.model('posts', Post)
+module.exports = {
+    PostModel: mongoose.model('posts', Post),
+    PostSchema: Post
+}
