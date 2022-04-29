@@ -1,5 +1,4 @@
 import React from "react";
-import AboutUsContent from "../utils/components/page_content/AboutUsContent";
 import LeftBar from '../utils/components/LeftBar'
 import LimeContent from "../utils/components/LimeContent";
 import TopBar from "../utils/components/TopBar";

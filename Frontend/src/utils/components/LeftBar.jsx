@@ -1,7 +1,4 @@
 import React from "react";
-import { Image, TouchableHighlight} from "react-native";
-import WannaHelp from "../../pages/WannaHelp";
-import logo from "../../assets/logo.svg";
 import LeftBarButton from "./LeftBarButton";
 import Home from "../../assets/buttons/home.png"
 import WantToHelp from "../../assets/buttons/want_to_help.png"
@@ -12,8 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "./LogoutButton";
 
 const LeftBar = () => {
-	const { isAuthenticated, loginWithRedirect } = useAuth0();
-	const { logout } = useAuth0();
+	const { isAuthenticated } = useAuth0();
 
 	if (isAuthenticated) {
 		return (
