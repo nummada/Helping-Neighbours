@@ -205,7 +205,7 @@
 }
 
 .input-layout {
-    @apply h-12 w-[700px] text-sm rounded-lg
+    @apply h-12 w-[700px] text-base rounded-lg px-4
 }
 
 .profile-save-wrapper {
@@ -256,7 +256,7 @@
 }
 
 .description-layout {
-    @apply h-[229px] w-[1000px] text-sm rounded-lg
+    @apply h-[229px] w-[1000px] text-base rounded-lg resize-none p-2 bg-text_bkg
 }
 
 .post-tag {
@@ -271,8 +271,27 @@
     @apply text-lg
 }
 
+.select-container {
+    @apply flex flex-col p-4 items-center gap-2
+}
+
+.select-county {
+    @apply w-min text-xl rounded p-1 bg-text_bkg
+}
+
+.address-layout {
+    @apply w-96 h-6 p-2 text-base rounded-lg resize-none bg-text_bkg
+}
+
 
 /* title in page */
 .page-title {
     @apply pl-[50px] pt-[44px] w-max text-4xl
+}
+
+
+
+/* generice */
+.centrare {
+    @apply items-center
 }
