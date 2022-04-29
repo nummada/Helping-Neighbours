@@ -3,7 +3,33 @@ import LeftBar from '../utils/components/LeftBar'
 import LimeContent from "../utils/components/LimeContent";
 import TopBar from "../utils/components/TopBar";
 
+// import api from '../api'
+// import { useState, setState } from "react";
+
+// import { useAuth0 } from "@auth0/auth0-react";
+
 const HomePage = () => {
+	// const { user } = useAuth0();
+	// // console.log("salut")
+
+	// console.log("salut", user)
+	// // user.sub -> 
+
+	// // _id, sub, nume, adresa
+
+	// api.getAllUsers()
+	// // .then(users => {
+	// // 	setState({
+	// // 		users: users.data.data,
+	// // 	})
+	// // })
+	// .then(users => {
+	// 	// console.log(users)
+	// })
+	// // .then(() => console.log("salut"))
+
+	// // var [something] = useState();
+
 	return (
 		// page-layout is in column
 		<div className="page-layout">

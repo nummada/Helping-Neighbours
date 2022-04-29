@@ -1,4 +1,6 @@
-import { useState, Component } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useState } from "react";
+import ReactLoading from "react-loading";
 import Button from "../Button";
 
 const ProfileContent = () => {
@@ -15,7 +17,7 @@ const ProfileContent = () => {
                 <div className="form-title">
                     Account information
                 </div>
-                <Form />
+                <Form2 />
             </div>
         </div>
     );
@@ -45,24 +47,21 @@ const FormData = (props) => {
     )
 }
 
-class Form extends Component {
-    // here props should be data from the database, not placeholders
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: 'example@gmail.com',
-            name: '',
-            address: '',
-            phoneNo: ''
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
+const Form2 = () => {
 
-    handleSubmit(event) {
-        const { name, email, address, phoneNo } = this.state
+    var { isLoading, isAuthenticated, user } = useAuth0();
+
+    var email = user?.email ?? "your email"
+    var email = user?.email ?? "your email"
+    var initialName = user?.nickname ?? "gigi"
+    var [name, setName] = useState(initialName)
+    var [phoneNo, setPhoneNo] = useState(user?.phone_number ?? "phone number")
+
+    // setName(user.nickname ?? "gigi")
+
+    const handleSubmit = (event) => {
         event.preventDefault()
-
+        // TODO: call la server API
         if (name.length > 25) {
             console.log("numele e prea lung")
         }
@@ -71,39 +70,50 @@ class Form extends Component {
         ____Your Details____\n
         Name : ${name}
         Email : ${email}
-        Address : ${address}
         Phone No : ${phoneNo}
       `)
+
+      console.log(user)
     }
 
-    handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-        // console.log(event)
+    const handleNameChange = (event) => {
+        event.preventDefault()
+        setName(event.target.value)
     }
 
-    render() {
-        return (
-            <form className="fields" onSubmit={this.handleSubmit}>
-                <FormData name='email' placeholder='Email'
-                    value={this.state.email} onChange={this.handleChange} />
+    const handlePhoneNoChange = (event) => {
+        event.preventDefault()
+        setPhoneNo(event.target.value)
+    }
 
-                <FormData name='name' placeholder='Name'
-                    value={this.state.name} onChange={this.handleChange} />
-
-                <FormData name='address' placeholder='Address'
-                    value={this.state.address} onChange={this.handleChange} />
-
-                <FormData name='phoneNo' placeholder='Phone number'
-                    value={this.state.phoneNo} onChange={this.handleChange} />
-
-                <div className='profile-save-wrapper'>
-                    <Button text="Save" bg_color="bkg-green" type="medium-button" />
-                </div>
-            </form>
+    if (isLoading) {
+        return (isLoading && 
+            <div className="items-center">
+                <ReactLoading type="spinningBubbles"  color="#0000FF" height={100} width={50} />
+            </div>
         )
     }
+
+    return (isAuthenticated &&
+        <form className="fields" onSubmit={handleSubmit}>
+            <FormData name='email' placeholder='Email'
+                value={email} onChange={() => {}}/>
+
+            <FormData name='name' placeholder='Name'
+                value={name} onChange={handleNameChange} />
+
+            {/* <FormData name='address' placeholder='Address'
+                value={address} onChange={handleChange} /> */}
+
+            <FormData name='phoneNo' placeholder='Phone number'
+                value={phoneNo} onChange={handlePhoneNoChange} />
+
+            <div className='profile-save-wrapper'>
+                <Button text="Save" bg_color="bkg-green" type="medium-button" />
+            </div>
+        </form>
+    )
 }
 
+// export default ProfileContent;
 export default ProfileContent;

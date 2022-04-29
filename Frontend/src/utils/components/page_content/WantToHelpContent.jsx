@@ -1,4 +1,4 @@
-import { React, Component, useRef } from "react";
+import { React, Component } from "react";
 
 const WantToHelpContent = () => {
 
@@ -24,29 +24,162 @@ const Input = (props) => {
     );
 }
 
-const county = [
-    {
-        value: "Arges",
-        cities: [
+const countyMap = new Map();
 
-        ]
+// countyMap.set("Arges", [
+//     "Curtea de Arges",
+//     "Tampitesti",
+// ]);
+// countyMap.set("Vaslui", [
+//     "Husi nr 1 oras din Vaslui",
+//     "Vaslui"
+// ]);
+// countyMap.set("Iasi", [
+//     "Iasi"
+// ]);
+// countyMap.set("pineapple", [
+//     "pineapple pen"
+// ]);
+
+const countyList = [
+    {
+        name: "Bucuresti"
     },
     {
-        value: "mango",
+        name: "Alba"
     },
     {
-        value: "banana",
+        name: "Arad"
     },
     {
-        value: "pineapple",
+        name: "Arges"
+    },
+    {
+        name: "Bacau"
+    },
+    {
+        name: "Bihor"
+    },
+    {
+        name: "Bistrita - Nasaud"
+    },
+    {
+        name: "Botosani"
+    },
+    {
+        name: "Braila"
+    },
+    {
+        name: "Brasov"
+    },
+    {
+        name: "Buzau"
+    },
+    {
+        name: "Calarasi"
+    },
+    {
+        name: "Caras - Severin"
+    },
+    {
+        name: "Cluj"
+    },
+    {
+        name: "Constanta"
+    },
+    {
+        name: "Constanta"
+    },
+    {
+        name: "Covasna"
+    },
+    {
+        name: "Dambovita"
+    },
+    {
+        name: "Dolj"
+    },
+    {
+        name: "Galati"
+    },
+    {
+        name: "Giurgiu"
+    },
+    {
+        name: "Gorj"
+    },
+    {
+        name: "Harghita"
+    },
+    {
+        name: "Hunedoara"
+    },
+    {
+        name: "Ialomita"
+    },
+    {
+        name: "Iasi"
+    },
+    {
+        name: "Ilfov"
+    },
+    {
+        name: "Maramures"
+    },
+    {
+        name: "Mehedinti"
+    },
+    {
+        name: "Mures"
+    },
+    {
+        name: "Neamt"
+    },
+    {
+        name: "Olt"
+    },
+    {
+        name: "Prahova"
+    },
+    {
+        name: "Salaj"
+    },
+    {
+        name: "Satu Mare"
+    },
+    {
+        name: "Sibiu"
+    },
+    {
+        name: "Suceava"
+    },
+    {
+        name: "Teleorman"
+    },
+    {
+        name: "Timis"
+    },
+    {
+        name: "Tulcea"
+    },
+    {
+        name: "Valcea"
+    },
+    {
+        name: "Vaslui"
+    },
+    {
+        name: "Vrancea"
     },
 ];
+
 
 class Tags extends Component {
 
     constructor() {
         super();
         this.state = {
+            address: '',
             categories: [
                 { id: 0, value: "Food" },
                 { id: 1, value: "Accomodation" },
@@ -56,19 +189,29 @@ class Tags extends Component {
                 { id: 5, value: "Other" }
             ],
             checkedItems: new Map(),
+            countyName: '', // the whole county JSON from above
             description: '',
-            county: 'empty'
         };
 
-        this.handleTagChange = this.handleTagChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAddressChange = this.handleAddressChange.bind(this)
         this.handleCountyChange = this.handleCountyChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleTagChange = this.handleTagChange.bind(this);
     }
 
-    handleCountyChange(e) {
-        console.log("County: " + e.target.value)
-        this.setState({ county: e.target.value });
+    handleCountyChange(event) {
+        console.log("County: ", event.target.value)
+        this.setState({ countyName: event.target.value });
+        console.log("state: ", this.state)
+        // console.log("countymap: ", countyMap)
+    }
+
+    handleAddressChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+        // console.log("Address, bitch:", this.state.address)
     }
 
     handleTagChange(event) {
@@ -101,17 +244,20 @@ class Tags extends Component {
                         <div className="enter-location">
                             Enter your location
                             <div className="select-container">
-                                <select value={this.state.fruit} onChange={this.handleCountyChange}>
-                                    {county.map((option) => (
-                                        <option key={option.value} value={option.value}>{option.value}</option>
+                                <select className="select-county" value={this.state.county} onChange={this.handleCountyChange} defaultValue={""}>
+                                    <option value="" hidden disabled>Select county</option>
+                                    {countyList.map((county) => (
+                                        <option key={county.name} value={county.name}>{county.name}</option>
                                     ))}
                                 </select>
-                                {/* aici blockcode care ia orasele din this.state.county */}
-                                <select value={this.state.fruit} onChange={this.handleCountyChange}>
-                                    {county.map((option) => (
-                                        <option key={option.value} value={option.value}>{option.value}</option>
-                                    ))}
-                                </select>
+                                <textarea className="address-layout"
+                                    type="text"
+                                    name={"address"}
+                                    placeholder={"City, street and number"}
+                                    onChange={this.handleAddressChange}
+                                    value={this.state.address}
+                                />
+
                             </div>
                         </div>
                         <div className="tags-and-image">
