@@ -3,7 +3,7 @@ const Button = (props) => {
     var bg_color = props.bg_color
     var on_click_function = props.on_click_function
 
-    console.log("on click", props.on_click_function)
+    // console.log("on click", props.on_click_function)
 
     var type = props.type
     return (

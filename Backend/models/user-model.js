@@ -6,6 +6,10 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const User = new Schema(
     {
+        auth0Id: {
+            type: String,
+            required: true,
+        },
         name: { 
             type: String,
             required: true,
@@ -16,7 +20,7 @@ const User = new Schema(
         },
         phoneNumber: {
             type: String,
-            required: true,
+            // required: true,
         },
         accountType: {
             type: String,
@@ -24,7 +28,7 @@ const User = new Schema(
             required: true,
         },
         posts: {
-            type: [PostSchema],
+            type: [ObjectId],
             required: true,
         },
         postsInterested : {
