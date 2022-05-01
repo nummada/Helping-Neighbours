@@ -8,18 +8,18 @@ import Profile from "../pages/Profile";
 import WannaHelp from "../pages/WannaHelp";
 
 const Router = () => {
-  return (
-    <BrowserRouter>
-    <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/about-us" element={<AboutUs />} />
-        <Route exact path="/modify-post" element={<ModifyPost />} />
-        <Route exact path="/my-posts" element={<MyPosts />} />
-        <Route exact path="/profile" element={<Profile />} />
-        <Route exact path="/want-to-help" element={<WannaHelp />} />
-    </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route exact path="/" element={<HomePage />} />
+				<Route exact path="/about-us" element={<AboutUs />} />
+				<Route exact path="/modify-post" element={<ModifyPost />} />
+				<Route exact path="/my-posts" element={<MyPosts />} />
+				<Route exact path="/profile" element={<Profile />} />
+				<Route exact path="/want-to-help" element={<WannaHelp />} />
+			</Routes>
+		</BrowserRouter>
+	);
 };
 
 export default Router;

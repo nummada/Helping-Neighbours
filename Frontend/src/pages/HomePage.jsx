@@ -3,37 +3,57 @@ import LeftBar from '../utils/components/LeftBar'
 import LimeContent from "../utils/components/LimeContent";
 import TopBar from "../utils/components/TopBar";
 
-// import api from '../api'
-// import { useState, setState } from "react";
+import api from '../api'
+import { useEffect } from "react";
 
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const HomePage = () => {
-	// const { user } = useAuth0();
-	// // console.log("salut")
+	const { isLoading, user, isAuthenticated, getIdTokenClaims } = useAuth0();
 
-	// console.log("salut", user)
-	// // user.sub -> 
 
-	// // _id, sub, nume, adresa
+	// this use efect executes this callback whenever anything inside the list
+	// that is the second argument is modifed -> when isAuthenticated is modified
+	useEffect(() => {
+		if (!isAuthenticated) {
+			console.log("[useEffect][NOT authenticated yet]\nReturning..")
+			return
+		}
 
-	// api.getAllUsers()
-	// // .then(users => {
-	// // 	setState({
-	// // 		users: users.data.data,
-	// // 	})
-	// // })
-	// .then(users => {
-	// 	// console.log(users)
-	// })
-	// // .then(() => console.log("salut"))
+		var auth0Id = user.sub
+		console.log("[useEffect][isAuthenticated][user.sub = [%O]]", auth0Id)
 
-	// // var [something] = useState();
+		api.getUserByAuth0Id(auth0Id)
+			.then((res) => console.log("[useEffect][isAuthenticated][api][getUserByAuth0Id][Ok][res = %O]", res))
+			.catch((err) => {
+				console.log("[useEffect][isAuthenticated][api][getUserByAuth0Id][error = %O]", err)
+
+				// this means the user is not in the DB so we have to create it
+
+				var userPayload = {
+					auth0Id: user.sub,
+					name: user.nickname,
+					email: user.email,
+					accountType: 'BENEFACTOR',
+				}
+
+				api.createUser(userPayload)
+					.then((res) => {
+						console.log("[useEffect][isAuthenticated][api][createUser][Ok][res = %O]", res)
+					})
+					.catch((err) => {
+						console.log("[useEffect][isAuthenticated][api][createUser][error = %O]", err)
+
+					})
+
+			})
+	}, [isAuthenticated])
+
 
 	return (
 		// page-layout is in column
 		<div className="page-layout">
-			<TopBar login_flag={0}/>
+			<TopBar login_flag={0} />
 			{/* page includes left bar and content, flex*/}
 			<div className="page">
 				<LeftBar />
@@ -41,7 +61,7 @@ const HomePage = () => {
                 adica ceva clasa/const cu poza de sus, filtrele si postarile. pentru restul paginilor care au
                 tot asa lime background, facem la fel, cate o componenta care sa contina tot ce trebuie
             */}
-				<LimeContent content={HomePageContent}/>
+				<LimeContent content={HomePageContent} />
 			</div>
 		</div>
 	);
