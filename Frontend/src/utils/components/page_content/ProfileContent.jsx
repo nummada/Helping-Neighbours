@@ -17,7 +17,7 @@ const ProfileContent = () => {
                 <div className="form-title">
                     Account information
                 </div>
-                <Form2 />
+                <Form />
             </div>
         </div>
     );
@@ -47,7 +47,7 @@ const FormData = (props) => {
     )
 }
 
-const Form2 = () => {
+const Form = () => {
 
     var { isLoading, isAuthenticated, user } = useAuth0();
 
@@ -56,8 +56,14 @@ const Form2 = () => {
     var initialName = user?.nickname ?? "gigi"
     var [name, setName] = useState(initialName)
     var [phoneNo, setPhoneNo] = useState(user?.phone_number ?? "phone number")
+    const [refugee, setRefugee] = useState(false);
 
     // setName(user.nickname ?? "gigi")
+
+    const toggleRefugee = () => {
+        setRefugee(!refugee)
+        console.log("Hei, ", refugee)
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -71,9 +77,10 @@ const Form2 = () => {
         Name : ${name}
         Email : ${email}
         Phone No : ${phoneNo}
+        Refugee: ${refugee}
       `)
 
-      console.log(user)
+        console.log(user)
     }
 
     const handleNameChange = (event) => {
@@ -87,9 +94,9 @@ const Form2 = () => {
     }
 
     if (isLoading) {
-        return (isLoading && 
+        return (isLoading &&
             <div className="items-center">
-                <ReactLoading type="spinningBubbles"  color="#0000FF" height={100} width={50} />
+                <ReactLoading type="spinningBubbles" color="#0000FF" height={100} width={50} />
             </div>
         )
     }
@@ -97,7 +104,7 @@ const Form2 = () => {
     return (isAuthenticated &&
         <form className="fields" onSubmit={handleSubmit}>
             <FormData name='email' placeholder='Email'
-                value={email} onChange={() => {}}/>
+                value={email} onChange={() => { }} />
 
             <FormData name='name' placeholder='Name'
                 value={name} onChange={handleNameChange} />
@@ -107,6 +114,17 @@ const Form2 = () => {
 
             <FormData name='phoneNo' placeholder='Phone number'
                 value={phoneNo} onChange={handlePhoneNoChange} />
+
+            <div className="form-field-title">
+                {"Select whether you are a refugee or a benefactor"}
+            </div>
+            
+            <div className="center-anything">
+                <button type="button" onClick={toggleRefugee} className={'toggle--button ' + (refugee ? 'toggle--close' : '')}>
+                    {refugee ? 'I am a refugee' : 'I am a benefactor'}
+                </button>
+            </div>
+
 
             <div className='profile-save-wrapper'>
                 <Button text="Save" bg_color="bkg-green" type="medium-button" />

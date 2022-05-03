@@ -213,6 +213,18 @@
 }
 
 
+.toggle--button {
+    @apply w-[150px] text-base bg-blue text-white cursor-pointer
+}
+
+.center-anything {
+    @apply items-center
+}
+
+.toggle--close {
+    background-color: red;
+}
+
 /* my posts only */
 
 .my-posts-layout {
