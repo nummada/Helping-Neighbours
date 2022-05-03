@@ -5,7 +5,6 @@ import ProfileContent from "../utils/components/page_content/ProfileContent";
 import TopBar from "../utils/components/TopBar";
 
 const Profile = () => {
-    const text = "This is profile page";
     return (
         <div className="page-layout">
 			<TopBar login_flag={0}/>

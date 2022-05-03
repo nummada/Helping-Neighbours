@@ -6,7 +6,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const Post = new Schema(
     {
-        beneactorId: {
+        benefactorId: {
             type: ObjectId,
             required: true,
         },

@@ -7,10 +7,11 @@ import api from '../api'
 import { useEffect } from "react";
 
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-	const { isLoading, user, isAuthenticated, getIdTokenClaims } = useAuth0();
-
+	const { user, isAuthenticated } = useAuth0();
+	const navigate = useNavigate();
 
 	// this use efect executes this callback whenever anything inside the list
 	// that is the second argument is modifed -> when isAuthenticated is modified
@@ -28,8 +29,15 @@ const HomePage = () => {
 			.catch((err) => {
 				console.log("[useEffect][isAuthenticated][api][getUserByAuth0Id][error = %O]", err)
 
-				// this means the user is not in the DB so we have to create it
+				if (err.code === "ERR_NETWORK") {
+					// network error
+					console.log("Network error, check connection with backend server")
+					return;
+				}
 
+				// navigate("/profile")
+
+				// this means the user is not in the DB so we have to create it
 				var userPayload = {
 					auth0Id: user.sub,
 					name: user.nickname,
@@ -47,7 +55,9 @@ const HomePage = () => {
 					})
 
 			})
-	}, [isAuthenticated])
+	},
+	// eslint-disable-next-line
+	[isAuthenticated])
 
 
 	return (

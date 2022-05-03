@@ -7,6 +7,9 @@ import PostPersonData from './PostPersonData'
 import Tag from './Tag'
 import Button from './Button'
 
+import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect } from 'react'
+
 const Post = (props) => {
     // TODO: aici trebuie cumva sa luam datele despre postari din backend
     const name = "Popescu Ion"
