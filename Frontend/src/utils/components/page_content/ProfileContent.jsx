@@ -1,6 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
-import ReactLoading from "react-loading";
 import Button from "../Button";
 
 const ProfileContent = () => {
@@ -93,13 +92,13 @@ const Form = () => {
         setPhoneNo(event.target.value)
     }
 
-    if (isLoading) {
-        return (isLoading &&
-            <div className="items-center">
-                <ReactLoading type="spinningBubbles" color="#0000FF" height={100} width={50} />
-            </div>
-        )
-    }
+    // if (isLoading) {
+    //     return (isLoading &&
+    //         <div className="items-center">
+    //             <ReactLoading type="spinningBubbles" color="#0000FF" height={100} width={50} />
+    //         </div>
+    //     )
+    // }
 
     return (isAuthenticated &&
         <form className="fields" onSubmit={handleSubmit}>
