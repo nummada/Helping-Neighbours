@@ -61,6 +61,18 @@ const HomePageContent = () => {
                     <img src={FlowerHands} alt="Flower Hands" width='300px' height='200px' />
                 </div>
 
+                <div className='home-filters'>
+                    <select className="select-county" value={county} onChange={handleCountyChange}>
+                        <option value="" hidden disabled>Select county</option>
+                        {CountyList.map((county) => (
+                            <option key={county.name + " home - page"} value={county.name}>{county.name}</option>
+                        ))}
+                    </select>
+                    <div className="home-tags">
+                        {tags}
+                    </div>
+                </div>
+
                 {/* TODO: for the tags pass setSelectedTags as a prop to the subcomponent
                     so for each new tag selected or deselected we have the selectdTags updated in here
                 */}
@@ -94,32 +106,6 @@ const HomePageContent = () => {
                     ))}
                 </select>
                 <div className="home-tags">
-                    {/* <TagInput
-                        value={"Food"}
-                        onChange={handleTagChange}
-                        isChecked={checkedItems["Food"]}
-                    />
-                    <TagInput
-                        value={"Accomodation"}
-                        onChange={handleTagChange}
-                        isChecked={checkedItems["Accomodation"]}
-                    />
-                    <TagInput
-                        value={"Transport"}
-                        onChange={handleTagChange}
-                    />
-                    <TagInput
-                        value={"Clothes"}
-                        onChange={handleTagChange}
-                    />
-                    <TagInput
-                        value={"Hygiene products"}
-                        onChange={handleTagChange}
-                    />
-                    <TagInput
-                        value={"Other"}
-                        onChange={handleTagChange}
-                    /> */}
                     {tags}
                 </div>
             </div>
