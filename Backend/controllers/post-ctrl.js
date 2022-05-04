@@ -1,4 +1,4 @@
-// import PostModel as Post from '../models/post-model'
+const UserModel = require('../models/user-model')
 
 const PostPackage = require('../models/post-model')
 const Post = PostPackage.PostModel
@@ -45,7 +45,7 @@ const createPost = (req, res) => {
 const getAllPosts = (req, res) => {
     console.log("[getAllPosts]")
 
-    Post.find({}, (err, posts) => {
+    Post.find({}, async (err, posts) => {
         if (err) {
             console.log("[getAllPosts][Error][Could not get all posts]", err)
             return res.status(400).json({
@@ -55,10 +55,24 @@ const getAllPosts = (req, res) => {
         }
 
         if (posts) {
-            console.log("[getAllPosts][Error][OK][Posts = [%O]]", posts)
+            console.log("[getAllPosts][OK][Posts]")
+            
+            var newPosts = await Promise.all(posts.map(async (post) => {
+                var newPost = post
+
+                var _id = post.benefactorId
+                
+                user = await UserModel.findOne({ _id })
+
+                newPost.benefName = user.name
+                newPost.benefEmail = user.email
+                newPost.benefPhoneNo = user.phoneNumber
+                return newPost
+            }))
+            
             return res.status(200).json({
                 success: true,
-                data: posts
+                data: newPosts
             })
         }
 

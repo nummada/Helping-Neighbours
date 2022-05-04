@@ -9,14 +9,21 @@ import Button from './Button'
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from 'react'
+import api from '../../api'
 
 const Post = (props) => {
     // TODO: aici trebuie cumva sa luam datele despre postari din backend
-    const name = "Popescu Ion"
-    const street = "Strada Mihai Eminescu 238, Bucuresti"
-    const phone = "0734 698 123"
-    const mail = "josiane43@yahoo.com"
-    const post_description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit ipsum quis metus mollis pretium. Aliquam id varius ligula. Donec euismod sodales mauris non maximus. Phasellus enim erat, aliquet id lorem id, porttitor vulputate justo. Aliquam ac lorem sit amet dolor vehicula faucibus eget ut nisi. Integer consequat odio ut ante fringilla, et tincidunt. Integer consequat odio ut ante fringilla, et tincidunt. Integer consequat odio ut ante fringilla, et tincidunt. Integer consequat odio ut ante fringilla, et tincidunt."
+    const content = props.content
+    const benefactorId = content.benefactorId
+    const postId = content._id
+
+    console.log("[Post][benefId = %O]", benefactorId)
+
+    const name = content.benefName
+    const street = content.benefAddress
+    const phone = content.benefPhoneNo
+    const mail = content.benefEmail
+    const post_description = content.description
     const page = props.page
 
     return (
@@ -51,16 +58,16 @@ const Post = (props) => {
                             {post_description}
                         </div>
                     </div>
-                        {
-                            page === 'home' ?
+                    {
+                        page === 'home' ?
                             <div className='post-button-wrapper'>
                                 <Button text="Interested" bg_color="bkg-green" on_click_function="interested" type="little-button" />
                             </div>
-                            :<div className='post-button-wrapper'>
+                            : <div className='post-button-wrapper'>
                                 <Button text="Modify" bg_color="bkg-green" on_click_function="modify" type="little-button" />
                                 <Button text="Delete" bg_color="bkg-red" on_click_function="delete" type="little-button" />
                             </div>
-                        }
+                    }
                 </div>
             </div>
         </div>

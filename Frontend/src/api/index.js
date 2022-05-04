@@ -12,10 +12,18 @@ export const getUserByAuth0Id = (auth0Id) => api.get(`/user/byAuth0Id/` + auth0I
 // export const deleteMovieById = id => api.delete(`/movie/${id}`)
 // export const getMovieById = id => api.get(`/movie/${id}`)
 
+export const createPosts = (payload) => api.post(`/post`, payload)
+export const getAllPosts = () => api.get(`/posts`)
+
 const apis = {
+    // user related
     createUser,
     getAllUsers,
     getUserByAuth0Id,
+
+    // posts related
+    createPosts,
+    getAllPosts,
 }
 
 export default apis
