@@ -54,38 +54,13 @@ const getUser = async (req, res) => {
 }
 
 const getUserByAuth0Id = (req, res) => {
-
-    var body = req.body
     var auth0Id = req.params.auth0Id
 
-    console.log("[getUserByAuth0Id][req.body = [%O]]", body)
-
-    console.log("SEARCHING USERS dupa auth0Id asta", auth0Id)
-    
-    // var docs = await User.find({ _id: auth0Id })
-    //     .then((user, err) => {
-    //         // if (err) {
-    //         //     console.log("eroare tati", err)
-    //         //     return res.status(400).json({
-    //         //             success: false,
-    //         //             error: err
-    //         //         })
-    //         // } else {
-    //             console.log("uite ca avem si useru", user)
-    //             return res.status(200).json({
-    //                 success: true,
-    //                 data: user
-    //             })
-    //         // }
-    //     })
-    //     .catch((err) => console.log(err))
-    
-    // console.log("avem docs", docs)
-
+    console.log("[getUserByAuth0Id][auth0Id = %O]", auth0Id)
 
     User.findOne({ auth0Id }, (err, user) => {
         if (err) {
-            console.log("eroare tati", err)
+            console.log("[getUserByAuth0Id][error = %O]", err)
             return res.status(400).json({
                     success: false,
                     error: err
@@ -93,7 +68,6 @@ const getUserByAuth0Id = (req, res) => {
         }
 
         if (user) {
-            console.log("err=", err)
             console.log("user=", user)
             return res.status(200).json({
                 success: true,
@@ -106,17 +80,39 @@ const getUserByAuth0Id = (req, res) => {
             .json({ success: false, error: `User not found` })
     })
 
+}
 
-    // return res
-    //     .status(404)
-    //     .json({
-    //         success: false,
-    //         data: docs
-    //     })
+const getUserById = (req, res) => {
+    var _id = req.params.id
+
+    console.log("[getUserById][_id = %O]", _id)
+
+    User.findOne({ _id }, (err, user) => {
+        if (err) {
+            console.log("[getUserById][error = %O]", err)
+            return res.status(400).json({
+                    success: false,
+                    error: err
+                })
+        }
+
+        if (user) {
+            console.log("user=", user)
+            return res.status(200).json({
+                success: true,
+                data: user
+            })
+        }
+
+        return res
+            .status(404)
+            .json({ success: false, error: `User not found` })
+    })
 }
 
 module.exports = {
     createUser,
     getUser,
     getUserByAuth0Id,
+    getUserById,
 }

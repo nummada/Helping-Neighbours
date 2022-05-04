@@ -22,6 +22,31 @@ const Post = new Schema(
             type: [ObjectId],
             required: true,
         },
+
+        // address
+        benefCounty: {
+            type: String,
+        },
+        benefAddress: {
+            type: String,
+        },
+
+        // to be filled at get
+        benefName: {
+            type: String,
+        },
+        benefCounty: {
+            type: String,
+        },
+        benefAddress: {
+            type: String,
+        },
+        benefEmail: {
+            type: String,
+        },
+        benefPhoneNo: {
+            type: String,
+        },
     },
 
     // options
