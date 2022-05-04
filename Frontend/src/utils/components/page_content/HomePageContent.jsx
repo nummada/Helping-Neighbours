@@ -9,9 +9,10 @@ const HomePageContent = () => {
     var [posts, setPosts] = useState([])
     var [setectedTags, setSelectedTags] = useState([])
     var [county, setCounty] = useState("Your county");
+
     var checkedItems = {
         "Food": false,
-        "Accomodation": false,
+        "Accomodation": true,
         "Transport": false,
         "Clothes": false,
         "Hygiene products": false,
@@ -34,6 +35,7 @@ const HomePageContent = () => {
             value={tagName}
             onChange={handleTagChange}
             key={index}
+            isChecked={checkedItems[tagName]}
         />
     )
 
@@ -95,10 +97,12 @@ const HomePageContent = () => {
                     {/* <TagInput
                         value={"Food"}
                         onChange={handleTagChange}
+                        isChecked={checkedItems["Food"]}
                     />
                     <TagInput
                         value={"Accomodation"}
                         onChange={handleTagChange}
+                        isChecked={checkedItems["Accomodation"]}
                     />
                     <TagInput
                         value={"Transport"}
