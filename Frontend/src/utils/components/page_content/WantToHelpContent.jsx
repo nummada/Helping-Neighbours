@@ -150,7 +150,7 @@ class Tags extends Component {
                     </div>
                     <div className="post-button-container ">
                         <button className="transparent-bgk-button" onClick={() => this.handleSubmit}>
-                            <div className={"bkg-blue" + " " + "medium-button"}>
+                            <div className={"bkg-green" + " " + "medium-button"}>
                                 {"Post"}
                             </div>
                         </button>
