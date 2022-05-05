@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button";
 
 const ProfileContent = () => {
@@ -7,9 +7,6 @@ const ProfileContent = () => {
         <div className="profile-page-content">
             <div className="profile-title">
                 {"Edit information"}
-            </div>
-            <div className="change-image">
-
             </div>
 
             <div className="form-layout">
@@ -56,6 +53,7 @@ const Form = () => {
     var [name, setName] = useState(initialName)
     var [phoneNo, setPhoneNo] = useState(user?.phone_number ?? "phone number")
     const [refugee, setRefugee] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     // setName(user.nickname ?? "gigi")
 
@@ -92,6 +90,10 @@ const Form = () => {
         setPhoneNo(event.target.value)
     }
 
+    useEffect(() => {
+        console.log("Poza mea este acum: ", selectedImage)
+    }, [selectedImage])
+
     // if (isLoading) {
     //     return (isLoading &&
     //         <div className="items-center">
@@ -101,34 +103,65 @@ const Form = () => {
     // }
 
     return (isAuthenticated &&
-        <form className="fields" onSubmit={handleSubmit}>
-            <FormData name='email' placeholder='Email'
-                value={email} onChange={() => { }} />
+        <div>
 
-            <FormData name='name' placeholder='Name'
-                value={name} onChange={handleNameChange} />
+            <form className="fields" onSubmit={handleSubmit}>
+                <div className="image">
+                    <div className="image-field-title">
+                        {"Select a profile image"}
+                    </div>
+                    <div className="choose-file-image">
+                        {selectedImage && (
+                            <div>
+                                <img
+                                    alt="not fount"
+                                    width={"250px"}
+                                    src={URL.createObjectURL(selectedImage)}
+                                />
+                                <br />
+                                <button className="remove-image-button" onClick={() => setSelectedImage(null)}>Remove</button>
+                            </div>
+                        )}
 
-            {/* <FormData name='address' placeholder='Address'
+                        <input
+                            className="choose-image-button"
+                            type="file"
+                            name="myImage"
+                            onChange={(event) => {
+                                // console.log(event.target.files[0]);
+                                setSelectedImage(event.target.files[0]);
+                            }}
+                        />
+                    </div>
+                </div>
+                <FormData name='email' placeholder='Email'
+                    value={email} onChange={() => { }} />
+
+                <FormData name='name' placeholder='Name'
+                    value={name} onChange={handleNameChange} />
+
+                {/* <FormData name='address' placeholder='Address'
                 value={address} onChange={handleChange} /> */}
 
-            <FormData name='phoneNo' placeholder='Phone number'
-                value={phoneNo} onChange={handlePhoneNoChange} />
+                <FormData name='phoneNo' placeholder='Phone number'
+                    value={phoneNo} onChange={handlePhoneNoChange} />
 
-            <div className="form-field-title">
-                {"Select whether you are a refugee or a benefactor"}
-            </div>
-            
-            <div className="center-anything">
-                <button type="button" onClick={toggleRefugee} className={'toggle--button ' + (refugee ? 'toggle--close' : '')}>
-                    {refugee ? 'I am a refugee' : 'I am a benefactor'}
-                </button>
-            </div>
+                <div className="form-field-title">
+                    {"Select whether you are a refugee or a benefactor"}
+                </div>
+
+                <div className="center-anything">
+                    <button type="button" onClick={toggleRefugee} className={'toggle--button ' + (refugee ? 'toggle--close' : '')}>
+                        {refugee ? 'I am a refugee' : 'I am a benefactor'}
+                    </button>
+                </div>
 
 
-            <div className='profile-save-wrapper'>
-                <Button text="Save" bg_color="bkg-green" type="medium-button" />
-            </div>
-        </form>
+                <div className='profile-save-wrapper'>
+                    <Button text="Save" bg_color="bkg-green" type="medium-button" />
+                </div>
+            </form>
+        </div>
     )
 }
 
