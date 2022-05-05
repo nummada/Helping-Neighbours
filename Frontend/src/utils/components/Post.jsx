@@ -13,19 +13,33 @@ import api from '../../api'
 import InterestedButton from './InterestedButton'
 
 const Post = (props) => {
-    // TODO: aici trebuie cumva sa luam datele despre postari din backend
     const content = props.content
     const benefactorId = content.benefactorId
     const postId = content._id
 
-    console.log("[Post][benefId = %O]", benefactorId)
+    // console.log("[Post = %O][benefId = %O]", postId, benefactorId)
 
     const name = content.benefName
     const street = content.benefAddress
+    const county = content.benefCounty
     const phone = content.benefPhoneNo
     const mail = content.benefEmail
     const post_description = content.description
     const page = props.page
+
+    const tags = content.tags
+    // console.log(tags)
+
+    var tagMap = {
+        'FOOD': "Food",
+        'ACCOMODATION': "Accomodation",
+        'TRANSPORT': "Transport",
+        'CLOTHES': "Clothes",
+        'HYGIENE_PRODUCTS': "Hygiene products",
+        'OTHER': "Other",
+    }
+
+    const filteredTags = tags.map((tag, index) => <Tag text={tagMap[tag]} key={index} />)
 
     return (
         <div className='post-container'>
@@ -37,7 +51,7 @@ const Post = (props) => {
                         </div>
                         <div className='post-person-data'>
                             <PostPersonData icon={ProfileIcon} text={name} />
-                            <PostPersonData icon={StreetIcon} text={street} />
+                            <PostPersonData icon={StreetIcon} text={`${street}, ${county}`} />
                             <PostPersonData icon={PhoneIcon} text={phone} />
                             <PostPersonData icon={EmailIcon} text={mail} />
                         </div>
@@ -45,12 +59,7 @@ const Post = (props) => {
                     <div className='tags'>
                         {/* TODO: aici trebuie sa punem doar tagurile care sunt
                         la postare. momentan sunt toate ca sa vad cum incap */}
-                        <Tag text="Food" />
-                        <Tag text="Accomodation" />
-                        <Tag text="Transport" />
-                        <Tag text="Clothes" />
-                        <Tag text="Hygiene products" />
-                        <Tag text="Other" />
+                        {filteredTags}
                     </div>
                 </div>
                 <div className='right-side-of-post'>

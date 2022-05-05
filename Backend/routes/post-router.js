@@ -8,5 +8,7 @@ const router = express.Router()
 
 router.post('/post', PostCtrl.createPost)
 router.get('/posts', PostCtrl.getAllPosts)
+router.get('/posts/byTags', PostCtrl.getPostsByTags)
+router.get('/user/:benefId/posts', PostCtrl.getPostsByBenefId)
 
 module.exports = router

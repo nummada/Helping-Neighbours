@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { TagSchema } = require('./tag-model')
+const { TagSchema, TagModel } = require('./tag-model')
 const Schema = mongoose.Schema
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
@@ -7,7 +7,7 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const Post = new Schema(
     {
         benefactorId: {
-            type: ObjectId,
+            type: String, // auth0Id
             required: true,
         },
         description: {
@@ -15,11 +15,13 @@ const Post = new Schema(
             required: true,
         },
         tags: {
-            type: [TagSchema],
+            type: [
+                String
+            ],
             required: true,
         },
         interestedRefugees: {
-            type: [ObjectId],
+            type: [String], // still auth0Id
             required: true,
         },
 
@@ -50,7 +52,7 @@ const Post = new Schema(
     },
 
     // options
-    { 
+    {
         timestamps: true
     }
 );

@@ -9,24 +9,29 @@ const HomePageContent = () => {
     var [posts, setPosts] = useState([])
     var [setectedTags, setSelectedTags] = useState([])
     var [county, setCounty] = useState("Your county");
-
     var checkedItems = {
-        "Food": false,
-        "Accomodation": true,
+        "Food": true,
+        "Accomodation": false,
         "Transport": false,
         "Clothes": false,
         "Hygiene products": false,
         "Other": false
     }
+    var [filterTags, setFilterTags] = useState(checkedItems)
+
 
     const handleCountyChange = (event) => {
         setCounty(event.target.value);
-        console.log("county now: ", county)
     }
 
     const handleTagChange = (event) => {
         var item = event.target.value;
-        checkedItems[item] = !checkedItems[item]
+        setFilterTags((oldTags) => {
+            return {
+                ...oldTags,
+                [item]: !oldTags[item]
+            }
+        })
         console.log("[HomePageContent][handleTagChange]\n\t", checkedItems)
     }
 
@@ -35,24 +40,37 @@ const HomePageContent = () => {
             value={tagName}
             onChange={handleTagChange}
             key={index}
-            isChecked={checkedItems[tagName]}
+            isChecked={filterTags[tagName]}
         />
     )
 
     useEffect(() => {
-        api.getAllPosts()
-            .then((res) => {
-                console.log("[HomePageContent][isAuthenticated][api][getAllPosts][Ok][res = %O]", res.data.data)
+        if (Object.keys(filterTags).filter(key => filterTags[key]).length === 0) {
+            api.getAllPosts()
+                .then((res) => {
+                    console.log("[HomePageContent][isAuthenticated][api][getAllPosts][Ok][res = %O]", res.data)
 
-                // hopefuly this is ok??
-                setPosts(res.data.data)
-            })
-            .catch((err) => {
-                console.log("[HomePageContent][isAuthenticated][api][getAllPosts][error = %O]", err)
-            })
+                    // hopefuly this is ok??
+                    setPosts(res.data.data)
+                })
+                .catch((err) => {
+                    console.log("[HomePageContent][isAuthenticated][api][getAllPosts][error = %O]", err)
+                })
+        } else {
+            api.getPostsByTags(filterTags)
+                .then((res) => {
+                    console.log("[HomePageContent][isAuthenticated][api][getPostsByTags][Ok][res = %O]", res.data)
+
+                    // hopefuly this is ok??
+                    setPosts(res.data.data)
+                })
+                .catch((err) => {
+                    console.log("[HomePageContent][isAuthenticated][api][getPostsByTags][error = %O]", err)
+                })
+        }
     },
         // eslint-disable-next-line
-        [])
+        [filterTags, county])
 
     if (posts.length === 0) {
         return (
@@ -63,7 +81,9 @@ const HomePageContent = () => {
 
                 <div className='home-filters'>
                     <select className="select-county" value={county} onChange={handleCountyChange}>
-                        <option value="" hidden disabled>Select county</option>
+
+                        <option value="All">All</option>
+
                         {CountyList.map((county) => (
                             <option key={county.name + " home - page"} value={county.name}>{county.name}</option>
                         ))}
@@ -72,10 +92,6 @@ const HomePageContent = () => {
                         {tags}
                     </div>
                 </div>
-
-                {/* TODO: for the tags pass setSelectedTags as a prop to the subcomponent
-                    so for each new tag selected or deselected we have the selectdTags updated in here
-                */}
 
                 <div className='posts'>
                     {/* Loading posts, 
@@ -86,12 +102,8 @@ const HomePageContent = () => {
         );
     }
 
-
-
     posts = posts.map((post, index) => <Post page="home" content={post} key={index} />)
 
-    // TODO: aici trebuie sa facem o logica daca se schimba vreun filtru sa faci rerender la postari
-    // TODO: variabilele modificate sunt county(judetul) si checkedItems(tagurile)
     return (
         <div>
             <div className='flower-hands'>
@@ -100,7 +112,7 @@ const HomePageContent = () => {
 
             <div className='home-filters'>
                 <select className="select-county" value={county} onChange={handleCountyChange}>
-                    <option value="" hidden disabled>Select county</option>
+                <option value="All">All</option>
                     {CountyList.map((county) => (
                         <option key={county.name + " home - page"} value={county.name}>{county.name}</option>
                     ))}
