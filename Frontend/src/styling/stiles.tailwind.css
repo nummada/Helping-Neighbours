@@ -110,7 +110,7 @@
 }
 
 .tag {
-    @apply flex w-auto whitespace-nowrap h-[18px] bg-tag_gray pl-2 pr-2 pt-1 pb-1 rounded-xl text-sm
+    @apply flex w-auto whitespace-nowrap h-[18px] bg-tag_gray pl-2 pr-2 pt-1 pb-2 rounded-xl text-sm
 }
 
 /* only the right side of a post */
