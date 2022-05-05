@@ -3,7 +3,7 @@ import CountyList from "../CountyList";
 import TagInput from "../TagInput";
 import { useAuth0 } from "@auth0/auth0-react";
 import api from "../../../api";
-
+import { useNavigate } from 'react-router-dom';
 
 const WantToHelpContent = () => {
     return (
@@ -16,6 +16,7 @@ const WantToHelpContent = () => {
 
 const Tags = () => {
     var { user, isAuthenticated } = useAuth0();
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log("isAuthenticated = [%O]", isAuthenticated)
@@ -123,6 +124,7 @@ const Tags = () => {
             .catch((err) => {
                 console.log("[WantToHelpContent][api][createPost][error = %O]", err)
             })
+        navigate("/my-posts");
     }
 
     return (
