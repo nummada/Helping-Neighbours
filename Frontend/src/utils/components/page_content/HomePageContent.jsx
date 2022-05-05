@@ -7,10 +7,11 @@ import CountyList from '../CountyList';
 
 const HomePageContent = () => {
     var [posts, setPosts] = useState([])
+    var [postsBuffer, setPostsBuffer] = useState([])
     var [setectedTags, setSelectedTags] = useState([])
-    var [county, setCounty] = useState("Your county");
+    var [county, setCounty] = useState("All");
     var checkedItems = {
-        "Food": true,
+        "Food": false,
         "Accomodation": false,
         "Transport": false,
         "Clothes": false,
@@ -45,13 +46,17 @@ const HomePageContent = () => {
     )
 
     useEffect(() => {
+        var posts = []
+
         if (Object.keys(filterTags).filter(key => filterTags[key]).length === 0) {
             api.getAllPosts()
                 .then((res) => {
                     console.log("[HomePageContent][isAuthenticated][api][getAllPosts][Ok][res = %O]", res.data)
 
                     // hopefuly this is ok??
-                    setPosts(res.data.data)
+                    // setPosts(res.data.data)
+                    // posts = res.data.data
+                    setPostsBuffer(res.data.data)
                 })
                 .catch((err) => {
                     console.log("[HomePageContent][isAuthenticated][api][getAllPosts][error = %O]", err)
@@ -62,15 +67,33 @@ const HomePageContent = () => {
                     console.log("[HomePageContent][isAuthenticated][api][getPostsByTags][Ok][res = %O]", res.data)
 
                     // hopefuly this is ok??
-                    setPosts(res.data.data)
+                    // setPosts(res.data.data)
+                    // posts = res.data.data
+                    setPostsBuffer(res.data.data)
                 })
                 .catch((err) => {
                     console.log("[HomePageContent][isAuthenticated][api][getPostsByTags][error = %O]", err)
                 })
         }
+
+        // if (county !== 'All') {
+        //     posts = posts.filter((post) => post.benefCounty === county)
+        // }
+        // setPosts(posts)
     },
         // eslint-disable-next-line
         [filterTags, county])
+
+    
+    useEffect(() => {
+        console.log("[useEffect la bufer posts][county = %O][bufferPosts = %O]", county, postsBuffer)
+        var localPosts = postsBuffer
+        if (county !== 'All') {
+            localPosts = postsBuffer.filter((post) => post.benefCounty === county)
+        }
+        setPosts(localPosts)
+    },
+    [postsBuffer])
 
     if (posts.length === 0) {
         return (
