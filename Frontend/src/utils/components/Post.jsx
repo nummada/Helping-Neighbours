@@ -10,6 +10,7 @@ import Button from './Button'
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from 'react'
 import api from '../../api'
+import InterestedButton from './InterestedButton'
 
 const Post = (props) => {
     // TODO: aici trebuie cumva sa luam datele despre postari din backend
@@ -61,7 +62,14 @@ const Post = (props) => {
                     {
                         page === 'home' ?
                             <div className='post-button-wrapper'>
-                                <Button text="Interested" bg_color="bkg-green" on_click_function="interested" type="little-button" />
+                                {/* TODO: here, send the email of the benefactor in params */}
+                                <InterestedButton
+                                    text="Interested"
+                                    bg_color="bkg-green"
+                                    type="little-button"
+                                    benefactorEmail = "PLACEHOLDER"
+                                    needsAuthentication = {true}
+                                />
                             </div>
                             : <div className='post-button-wrapper'>
                                 <Button text="Modify" bg_color="bkg-green" on_click_function="modify" type="little-button" />
