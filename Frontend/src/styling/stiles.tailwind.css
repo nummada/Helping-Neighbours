@@ -1,15 +1,19 @@
+@tailwind components;
+
 .page-layout {
     @apply flex-col w-screen h-screen;
 }
 
 /* general */
-.little-button {
-    @apply flex w-fit whitespace-nowrap p-2 rounded-xl text-sm text-white
+@layer components {
+    .little-button {
+        @apply flex w-fit whitespace-nowrap py-2 px-4  rounded-full text-base text-white hover:bg-blue
+    }
+    .medium-button {
+        @apply flex w-fit whitespace-nowrap py-2 px-4  rounded-full text-lg text-white hover:bg-blue
+    }
 }
 
-.medium-button {
-    @apply flex w-fit whitespace-nowrap p-2 rounded-xl text-lg text-white
-}
 
 .post-button-wrapper {
     @apply flex mr-6 justify-end gap-2
@@ -214,6 +218,25 @@
     @apply h-[30px] text-base w-max
 }
 
+.image-field-title {
+    @apply h-[30px] text-base w-max
+}
+
+.choose-file-image {
+    @apply w-max h-max
+}
+
+@layer components {
+    .remove-image-button {
+        @apply bg-red text-white hover:bg-light_red hover:text-black  font-bold py-2 px-4  rounded-full mb-2    
+    }
+    .choose-image-button {
+        @apply bg-green text-white hover:bg-light_green hover:text-black font-bold py-2 px-4 rounded-full
+    }
+}
+
+
+
 .input-layout {
     @apply h-12 w-[700px] text-base rounded-lg px-4
 }
@@ -223,17 +246,20 @@
 }
 
 
-.toggle--button {
-    @apply w-[150px] text-base bg-blue text-white cursor-pointer
+@layer components {
+    .toggle--button {
+        @apply w-[180px] text-base bg-black hover:bg-white hover:text-black border-white border-8 text-white cursor-pointer rounded-full py-2 px-4 
+    }
+    .toggle--close {
+        @apply w-[180px] bg-black text-white hover:bg-white hover:text-black border-white border-8
+    }
 }
+
 
 .center-anything {
     @apply items-center
 }
 
-.toggle--close {
-    background-color: red;
-}
 
 /* my posts only */
 

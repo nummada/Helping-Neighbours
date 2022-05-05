@@ -17,6 +17,7 @@ module.exports = {
             blue: "#0047FF",
             gray: "#4E5254",
             green: "#00B929",
+            light_green: "#66ff87",
             light_blue: "#C2E0F1",
             lime: "#D3FBD8",
             orange: "#F39530",
@@ -24,7 +25,8 @@ module.exports = {
             white: "#FFFFFF",
             tag_gray: "#E2DED5",
             red: "#FF0000",
-
+            light_red: "#ffb3b3",
+            button_gray:"#EFEFEF",
 
             transparent: "transparent",
             current: "currentColor",

@@ -81,7 +81,9 @@ const HomePageContent = () => {
 
                 <div className='home-filters'>
                     <select className="select-county" value={county} onChange={handleCountyChange}>
+
                         <option value="All">All</option>
+
                         {CountyList.map((county) => (
                             <option key={county.name + " home - page"} value={county.name}>{county.name}</option>
                         ))}
